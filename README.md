@@ -11,17 +11,6 @@ A Python project that shows your current DaVinci Resolve status in Discord using
 
 ## Download:
 
-### Git Clone:
-
-```
-git clone https://github.com/EndCod3r/Resolve-RPC.git
-cd Resolve-RPC
-```
-
-or if you don't have [Git](https://git-scm.com) installed
-
-### Download Zip:
-
 Go to the [releases](https://github.com/EndCod3r/Resolve-RPC/releases/latest), and open the Assets drop down, and download the Source code (zip). Extract it once it's done.
 
 ## Usage:
@@ -43,7 +32,7 @@ Add environment variables by running `add_env.bat` as Administrator or manually 
 5. Add another variable named: `RESOLVE_SCRIPT_API` and variable value: `%PROGRAMDATA%\Blackmagic Design\DaVinci Resolve\Support\Developer\Scripting`
 6. Add a final variable named: `RESOLVE_SCRIPT_LIB` and variable value `C:\Program Files\Blackmagic Design\DaVinci Resolve\fusionscript.dll` or if you installed DaVinci Resolve in a different location make sure you set it to the correct location.
 
-Finally, run `python main.py`.
+Finally, run `python main.py` in the `src` directory.
 
 ## Configuration:
 

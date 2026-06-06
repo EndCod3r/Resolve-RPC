@@ -1,0 +1,16 @@
+-- DiscordRPC.fuse - Simple working version
+print("[DiscordRPC] Loading...")
+
+local script_path = "src\\main.py"
+os.execute('start /B pythonw "' .. script_path .. '"')
+
+print("[DiscordRPC] Launched")
+
+FuRegisterClass("DiscordRPC", CT_Tool, {
+    REGS_Name = "Discord RPC",
+    REGS_Category = "Utility",
+})
+
+function Create()
+    return nil
+end

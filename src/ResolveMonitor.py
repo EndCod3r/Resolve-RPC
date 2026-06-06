@@ -1,6 +1,7 @@
-import config
+import config as config
 import psutil
 from python_get_resolve import GetResolve
+
 
 class ResolveMonitor:
     def __init__(self):
@@ -12,19 +13,19 @@ class ResolveMonitor:
         self.project_manager = None
         self.project = None
         self.timeline = None
-    
+
     def check_if_running(self):
         """Check if DaVinci Resolve process is running"""
-        for proc in psutil.process_iter(['name']):
+        for proc in psutil.process_iter(["name"]):
             try:
-                if proc.info['name'] == config.RESOLVE_PROCESS_NAME:
+                if proc.info["name"] == config.RESOLVE_PROCESS_NAME:
                     self.is_running = True
                     return True
             except (psutil.NoSuchProcess, psutil.AccessDenied):
                 continue
         self.is_running = False
         return False
-    
+
     def connect_to_resolve(self):
         """Establish connection to Resolve API - call this after confirming it's running"""
         try:
@@ -35,22 +36,22 @@ class ResolveMonitor:
         except Exception as e:
             print(f"Failed to connect to Resolve: {e}")
         return False
-    
+
     def update_project_info(self):
         """Refresh project and timeline info - call this regularly"""
         if not self.resolve or not self.project_manager:
             if not self.connect_to_resolve():
                 return False
-        
+
         try:
             current_page = self.resolve.GetCurrentPage()
-            
+
             if current_page == "None":
                 self.current_page = "starting"
                 self.current_project = "Starting..."
                 self.current_timeline = "Loading..."
                 return True
-            
+
             try:
                 self.project = self.project_manager.GetCurrentProject()
                 if self.project:
@@ -61,7 +62,7 @@ class ResolveMonitor:
                 print(f"DEBUG: Error getting project: {e}")
                 self.project = None
                 self.timeline = None
-            
+
             # Handle Python None - this could be Project Manager, Settings, Preferences, etc.
             if current_page is None:
                 if self.project is not None:
@@ -74,7 +75,9 @@ class ResolveMonitor:
                     else:
                         self.current_page = "menu"
                         self.current_project = "In Menus"
-                        self.current_timeline = self.timeline.GetName() if self.timeline else "Unknown"
+                        self.current_timeline = (
+                            self.timeline.GetName() if self.timeline else "Unknown"
+                        )
                     return True
                 # Otherwise, Resolve is starting up
                 else:
@@ -82,17 +85,17 @@ class ResolveMonitor:
                     self.current_project = "Starting..."
                     self.current_timeline = "Loading..."
                     return True
-            
+
             # Detect Project Manager by page name
             if current_page == "none":
                 self.current_page = "none"
                 self.current_project = "Project Manager"
                 self.current_timeline = "None"
                 return True
-            
+
             # Normal case - project is open
             self.current_page = current_page
-            
+
             # Safely get project name
             if self.project:
                 try:
@@ -105,7 +108,7 @@ class ResolveMonitor:
                     self.current_project = "Loading..."
             else:
                 self.current_project = "Loading..."
-            
+
             # Safely get timeline name
             if self.timeline:
                 try:
@@ -118,9 +121,9 @@ class ResolveMonitor:
                     self.current_timeline = "No Timeline Open"
             else:
                 self.current_timeline = "No Timeline Open"
-            
+
             return True
-            
+
         except Exception as e:
             print(f"Error updating project info: {e}")
             self.current_page = "error"
@@ -136,12 +139,12 @@ class ResolveMonitor:
 
     def get_current_page(self):
         return self.current_page
-    
+
     def get_full_status(self):
         """Returns dictionary with all current status info"""
         return {
             "project": self.current_project,
             "timeline": self.current_timeline,
             "page": self.current_page,
-            "is_running": self.is_running
+            "is_running": self.is_running,
         }
