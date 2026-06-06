@@ -1,5 +1,8 @@
 @echo off
-set /p RESOLVE_PATH="Enter the path to DaVinci Resolve (e.g., C:\Program Files\Blackmagic Design\DaVinci Resolve): "
+set /p RESOLVE_PATH="Enter the path to DaVinci Resolve (enter for C:\Program Files\Blackmagic Design\DaVinci Resolve): "
+if "%RESOLVE_PATH%"=="" (
+    set RESOLVE_PATH=C:\Program Files\Blackmagic Design\DaVinci Resolve
+)
 if not exist "%RESOLVE_PATH%\fusionscript.dll" (
     echo The specified path does not contain fusionscript.dll. Please check the path and try again.
     pause
