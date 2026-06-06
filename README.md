@@ -23,7 +23,7 @@ Open a terminal in the Resolve-RPC directory and run:
 pip install -r requirements.txt
 ```
 
-Add environment variables by running `add_env.bat` as Administrator or manually by
+Add environment variables by running `add_env.bat` (or as Administrator for all users) or manually by
 
 1. Searching for `Edit environment variables` in Windows Search and press enter.
 2. Click `Environment Variables` in the bottom right of the window that just opened.
