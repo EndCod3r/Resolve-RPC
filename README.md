@@ -47,3 +47,13 @@ If you want the script to run when DaVinci Resolve starts up move the `discord-r
 ## Configuration:
 
 Find `config.py` in the `src` directory and open it in any text editor and edit the text in the quotes to change what is displayed on your Discord profile.
+
+## Using your own Discord application:
+
+If you want to change the icons or the name the shows up on Discord you'll have to create your own Discord application.
+
+To start go to the [Discord Developer Portal](https://discord.com/developers/applications) and click `New Application`. Give it the name you want to show up as your status on Discord (eg. DaVinci Resolve Studio, Resolve, etc.)
+
+Now that you've created your Discord application, give it the icon you want to be displayed as the large image on your Discord status. If that's all you wanted to do then you're done just copy the `Application ID` in the General Information page and replace the one in `config.py`!
+
+If you want to add custom images for each page then you'll have to name them correctly, which you can find in the [Images](https://github.com/EndCod3r/Resolve-RPC/tree/main/Images) directory. Just give it the name of the page in all lowercase so for the Color page name it `color.png`, etc. To upload them, find `Art Assests` under the Rich Presence dropdown in the Developer Portal, click add images, and select all your images and make sure they are still named correctly!
