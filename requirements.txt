@@ -1,2 +1,2 @@
-pypresence
-psutil
+psutil==7.2.2
+pypresence==4.6.1
