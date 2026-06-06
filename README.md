@@ -1,0 +1,50 @@
+# DaVinci Resolve Discord Rich Presence
+
+A Python project that shows your current DaVinci Resolve status in Discord using the `pypresence` package. (Only tested to be working on Windows!)
+
+## Prerequisites:
+
+- Windows 10+
+- DaVinci Resolve Studio 20.X
+- [Python 3.13+](https://www.python.org/downloads/)
+- Git (optional)
+
+## Download:
+
+### Git Clone:
+
+```
+git clone https://github.com/EndCod3r/Resolve-RPC.git
+cd Resolve-RPC
+```
+
+or if you don't have [Git](https://git-scm.com) installed
+
+### Download Zip:
+
+Go to the [releases](https://github.com/EndCod3r/Resolve-RPC/releases/latest), and open the Assets drop down, and download the Source code (zip). Extract it once it's done.
+
+## Usage:
+
+Ensure you have [Python](https://www.python.org/downloads/) installed and select 'Add Python to PATH' during the installation process.
+
+Open a terminal in the Resolve-RPC directory and run:
+
+```
+pip install -r requirements.txt
+```
+
+Add environment variables by running `add_env.bat` as Administrator or manually by
+
+1. Searching for `Edit environment variables` in Windows Search and press enter.
+2. Click `Environment Variables` in the bottom right of the window that just opened.
+3. Under `System variables` click `New...`
+4. Add a variable named: `PYTHONPATH` and variable value: `%PYTHONPATH%;%RESOLVE_SCRIPT_API%\Modules\`
+5. Add another variable named: `RESOLVE_SCRIPT_API` and variable value: `%PROGRAMDATA%\Blackmagic Design\DaVinci Resolve\Support\Developer\Scripting`
+6. Add a final variable named: `RESOLVE_SCRIPT_LIB` and variable value `C:\Program Files\Blackmagic Design\DaVinci Resolve\fusionscript.dll` or if you installed DaVinci Resolve in a different location make sure you set it to the correct location.
+
+Finally, run `python main.py`.
+
+## Configuration:
+
+Find `config.py` and open it in any text editor and edit the text in the quotes to change what is displayed on your Discord profile.
