@@ -20,10 +20,10 @@ PAGE_SMALL_TEXT = "{page} Page"  # Will show as "Edit Page", "Color Page", etc.
 # Customize status for unsaved projects
 UNSAVED_PROJECT_DETAILS = "Unsaved Project"
 
-# Customize default message for unknown pages
+# Customize default message for unknown pages. Use {page} as a placeholder for the page name if you want to include it.
 DEFAULT_PAGE_MESSAGE = "Working on {page} page"
 
-# Timeline display settings
+# Timeline display settings. Use {timeline} as a placeholder for the timeline name. If no timeline is open, it will show "(No timeline)" by default.
 NO_TIMELINE_TEXT = "(No timeline)"
 TIMELINE_FORMAT = "'{timeline}'"  # How timeline names are displayed
 
