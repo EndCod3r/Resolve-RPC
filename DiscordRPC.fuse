@@ -1,10 +1,30 @@
--- DiscordRPC.fuse - Simple working version
+-- DiscordRPC.fuse
+-- Place in: C:\ProgramData\Blackmagic Design\DaVinci Resolve\Fusion\Fuses\
+-- The src folder should be in the same directory as this fuse file
+
 print("[DiscordRPC] Loading...")
 
-local script_path = "src\\main.py"
-os.execute('start /B pythonw "' .. script_path .. '"')
+-- Get the directory where this fuse file is located
+local fuse_path = debug.getinfo(1, "S").source
+-- Remove the '@' prefix and the filename
+local fuse_dir = fuse_path:gsub("^@", ""):gsub("[^\\/]+$", "")
 
-print("[DiscordRPC] Launched")
+-- Build path to main.py in the src folder
+local script_path = fuse_dir .. "src\\main.py"
+
+-- Check if the script exists
+local file = io.open(script_path, "r")
+if file then
+    file:close()
+    
+    -- Launch the Python script
+    local command = 'start /B pythonw "' .. script_path .. '"'
+    os.execute(command)
+    
+    print("[DiscordRPC] Launched from: " .. script_path)
+else
+    print("[DiscordRPC] ERROR: Cannot find script at: " .. script_path)
+end
 
 FuRegisterClass("DiscordRPC", CT_Tool, {
     REGS_Name = "Discord RPC",
@@ -13,4 +33,10 @@ FuRegisterClass("DiscordRPC", CT_Tool, {
 
 function Create()
     return nil
+end
+
+function GetPrefs()
+    return {
+        { "ShowInEffects", false },
+    }
 end
