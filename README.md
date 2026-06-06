@@ -1,6 +1,6 @@
 # DaVinci Resolve Discord Rich Presence
 
-A Python project that shows your current DaVinci Resolve status in Discord using the `pypresence` package. (Only tested to be working on Windows!)
+A Python project that shows your current DaVinci Resolve status in Discord using the `pypresence` package. (Only tested to be working on Windows with Resolve Studio 20!)
 
 ## Prerequisites:
 
