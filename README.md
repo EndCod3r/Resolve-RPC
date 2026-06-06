@@ -11,7 +11,7 @@ A Python project that shows your current DaVinci Resolve status in Discord using
 
 ## Download:
 
-Go to the [releases](https://github.com/EndCod3r/Resolve-RPC/releases/latest), and open the Assets drop down, and download the Source code (zip). Extract it once it's done.
+Go to the [releases](https://github.com/EndCod3r/Resolve-RPC/releases/latest), and open the Assets drop down, and download the `resolve-rpc_vX.X.X.zip` file. Extract it once it's done.
 
 ## Usage:
 
