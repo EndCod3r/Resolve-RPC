@@ -34,9 +34,11 @@ Add environment variables by running `add_env.bat` as Administrator or manually 
 
 Finally, run `python main.py` in the `src` directory.
 
-If you want the script to run when DaVinci Resolve starts up move the `discord-rpc` folder to one of the `Fuses` folders. Be warned that a command prompt window may pop when launching DaVinci Resolve which is normal as it's just starting the script and I couldn't figure out how to hide it.
+## Startup with Resolve:
 
-You can find one of the Fuse folders by:
+If you want the script to run when DaVinci Resolve starts up move the `discord-rpc` folder to one of the `Fuses` folders. You can delete the `add_env.bat` script and `requirements.txt` as they are only needed during setup. Be warned that a command prompt window may pop when launching DaVinci Resolve which is normal as it's just starting the script and I couldn't figure out how to hide it.
+
+### You can find one of the Fuse folders by:
 
 1. Going to Fusion in any project.
 2. Double-clicking the percentage in the bottom right.
