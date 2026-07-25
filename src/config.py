@@ -12,6 +12,7 @@ PAGE_MESSAGES = {
     "color": "Color grading:",
     "fairlight": "Mixing audio for:",
     "deliver": "Rendering:",
+    "photo": "Editing photos for:",
 }
 
 # Use {page} as a placeholder for the page name
