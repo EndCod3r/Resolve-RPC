@@ -5,7 +5,7 @@ A Python project that shows your current DaVinci Resolve status in Discord using
 ## Prerequisites:
 
 - Windows 10+
-- DaVinci Resolve Studio(?) 20.X
+- DaVinci Resolve Studio(?) 20+
 - [Python 3.14+](https://www.python.org/downloads/)
 
 ## Download:
