@@ -14,17 +14,6 @@ class DiscordPresence:
         self.reconnect_attempts = 0
         self.max_reconnect_attempts = 5
 
-        # Page to message mapping
-        self.page_messages = {
-            "media": "Managing media for:",
-            "cut": "Cutting:",
-            "edit": "Editing:",
-            "fusion": "Making effects for:",
-            "color": "Color grading:",
-            "fairlight": "Mixing audio for:",
-            "deliver": "Rendering:",
-        }
-
     def connect(self):
         """Connect to Discord's RPC"""
         try:
@@ -187,11 +176,12 @@ class DiscordPresence:
         else:
             timeline_display = config.TIMELINE_FORMAT.format(timeline=timeline)
 
-        # Get the action message
-        if page in self.page_messages:
-            action = self.page_messages[page]
+        # Get the action message from config.PAGE_MESSAGES (not self.page_messages)
+        if page in config.PAGE_MESSAGES:
+            action = config.PAGE_MESSAGES[page]
         else:
-            action = f"Working on {page} page"
+            # Use default message template from config
+            action = config.DEFAULT_PAGE_MESSAGE.format(page=page)
 
         # Create the status message
         status_text = f"{action} {timeline_display}"
