@@ -1,6 +1,7 @@
-DISCORD_CLIENT_ID = "1512377180213088388" # Your Discord application's Client ID. This is required to connect to Discord's Rich Presence API. You can find this in the Discord Developer Portal under your application settings or use the provided default ID.
-POLL_INTERVAL = 5 # The interval (in seconds) at which the script checks for updates in DaVinci Resolve. Adjust as needed to balance responsiveness and performance.
-RESOLVE_PROCESS_NAME = "Resolve.exe" # The name of the DaVinci Resolve process executable. Used to check if DaVinci Resolve is running.
+DISCORD_CLIENT_ID = "1512377180213088388"  # Your Discord application's Client ID. This is required to connect to Discord's Rich Presence API. You can find this in the Discord Developer Portal under your application settings or use the provided default ID.
+POLL_INTERVAL = 5  # The interval (in seconds) at which the script checks for updates in DaVinci Resolve. Adjust as needed to balance responsiveness and performance.
+RESOLVE_PROCESS_NAME = "Resolve.exe"  # The name of the DaVinci Resolve process executable. Used to check if DaVinci Resolve is running.
+EXIT_AFTER_CLOSED = 30  # The duration (in seconds) to wait after DaVinci Resolve has closed before the script exits. This allows for a grace period in case of accidental closure or temporary issues.
 
 # Change these to whatever you want Discord to display before the timeline name.
 PAGE_MESSAGES = {
@@ -10,7 +11,7 @@ PAGE_MESSAGES = {
     "fusion": "Making effects for:",
     "color": "Color grading:",
     "fairlight": "Mixing audio for:",
-    "deliver": "Rendering:"
+    "deliver": "Rendering:",
 }
 
 # Use {page} as a placeholder for the page name

@@ -60,8 +60,11 @@ def main():
                 # Increment counter for how long Resolve has been closed
                 resolve_closed_count += 1
 
-                # Exit after Resolve has been closed for 30 seconds (15 checks with 2 second interval)
-                if resolve_closed_count > 15:
+                # Exit after Resolve has been closed for the specified duration
+                if (
+                    resolve_closed_count
+                    > config.EXIT_AFTER_CLOSED / config.POLL_INTERVAL
+                ):
                     print(
                         f"Resolve has been closed for {resolve_closed_count * config.POLL_INTERVAL} seconds. Exiting..."
                     )
